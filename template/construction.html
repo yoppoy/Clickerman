@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <title>Site en construction</title>
+	<link type="text/css" rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700'>
+	<link type="text/css" rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto:300,400,700'>
+	<link type="text/css" rel="stylesheet" href="{% static "web/css/shared/foundation.min.css" %}"/>
+	<link type="text/css" rel="stylesheet" href="{% static "web/css/shared/app.css" %}" />
+	<link type="text/css" rel="stylesheet" href="{% static "web/css/construction.css" %}"/>
+	<link type="text/css" rel="stylesheet" href="{% static "web/css/bundle/circle_generator.css" %}"/>
+</head>
+<body>
+	<div id="main_container" class="fill_page flex flex-center" style="background-image: url({% static "web/img/construction/background.jpg" %});">
+		<div id="center_container" class="flex-child">
+			<h1>Uclics</h1>
+			<h3>Notre site est actuellement en cours de <span class="bold">développement.</span></h3>
+			<div id="circle-border">
+				<div id="circle-btn">
+					Entraînez<br />vous <span class="light">en<br /> attendant</span>
+				</div>
+			</div>
+			<label>Highscore</label>
+			<p id="player_score">0</p>
+		</div>
+		<div id="contact_us">
+			<p>Envie de <span class="bold">promouvoir votre entreprise ?</span><br>
+				<span class="bold">Précommandez</span> ou demandez nous plus d’informations à cette adresse :<br />
+				<a href="mailto:contact@uclics.com" class="underline">contact@uclics.com</a></p>
+			</div>
+		</div>
+		<div id="text-container"></div>
+		<script type="text/javascript" src="{% static "web/js/shared/jquery.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "web/js/shared/app.js" %}"></script>
+		<script type="text/javascript" src="{% static "web/js/bundle/local_gen.js" %}"></script>
+		<script type="text/javascript" src="{% static "web/js/bundle/circle_generator.js" %}"></script>
+	</body>
+	</html>

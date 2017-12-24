@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Bienvenue sur Uclics
+{% endblock %}
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{% static "web/css/plugin/font-awesome/css/font-awesome.min.css" %}"/>
+<link type="text/css" rel="stylesheet" href="{% static "web/css/home/user.css" %}"/>
+{% endblock %}
+
+{% block content %}
+<div id="main_container" class="fill_page">
+    <div class="product-grid">
+        <!--<div class="full-container" id="info_panel">
+            <div>
+                <h1>Accueil</h1>   
+            </div>
+        </div>-->
+        <div class="full-container">
+            <form id="search-bar" method="post" action="{% url 'web:home' %}">
+                {% csrf_token %}
+                <div>
+                    <label>Trier par:</label><br>
+                    {{ form.sort }}
+                </div>
+                <div>
+                    <label>Catégories:</label><br>
+                    {{ form.category }}
+                </div>
+                <div>
+                    <label>Ordre:</label><br>
+                    {{ form.order }}
+                </div>
+                <div>
+                    <input type="submit" class="button success" value="Filtrer">
+                    <input type="hidden" name="next" value="{{ next }}">
+                </div>
+            </form>
+        </div>
+        {% for bundle in bundles %}
+        <div class="product-container">
+            <div class="product">
+                <a href="{{ bundle.url }}">
+                        <div class="product-img" {% if bundle.media %}style="background: url('https://uclics.com/{{ bundle.media.url }}');"{% endif %}>
+                        <div class="initial-info">
+                            <div>
+                                <h4 class="product-text-enterprise"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ bundle.time_left }}</h4>
+                            </div>
+                            <div>
+                                <h4 class="product-text-name"><i class="fa fa-trophy" aria-hidden="true"></i> {{ bundle.highscore }}</h4>
+                            </div>
+                            <div>
+                                <h4 class="product-text-name">{{ bundle.total_value }} €</h4>
+                            </div>
+                        </div>
+                        <div class="flex flex-center hover-info" style="display: none">
+                            <div class="flex-child">
+                                <p class="product-text-hover-name">Cliqueurs</p>
+                                <p class="product-text-hover-value">{{ bundle.nb_clickers }} / {{ bundle.get_total_clickers }}</p>
+                                <p class="product-text-hover-name">Mon highscore</p>
+                                <p class="product-text-hover-value">{{ bundle.highscore_user }}</p>
+                                <p class="product-text-hover-name">Ma position</p>
+                                <p class="product-text-hover-value">{{ bundle.position_user }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="flex product-info">
+                    <div class="flex-child text-left" style="flex-grow: 99;">
+                        <a href="{{ bundle.url }}"><p class="product-text-name">{{ bundle.name }}</p></a>
+                        <a href="{{ bundle.enterprise.url }}" class="product-text-enterprise">{{ bundle.enterprise.name }}</a>
+                    </div>
+                    <div class="flex-child" style="margin-left: auto">
+                        <a href="{{ bundle.enterprise.url }}"><div class="enterprise-img" style="background-image: url('https://lh5.ggpht.com/acFxO77QPh7_zJm47pqbAqZ8OB99l_yDdxjahZOaPXpet7P3aly8dGukSlbDgRJUXw=w300');"></div></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock content %}
+<!--<h1><a href="{{ bundle.url }}">{{ bundle.name }}</a></h1>
+<div>
+    <ul>
+        <li>Date de fin: {{ bundle.date_ended }}</li>
+        <li>Valeur totale: {{ bundle.total_value }}</li>
+        <li>Entreprise: {{ bundle.enterprise.name }}</li>
+        <li>Logo entreprise</li>
+        <li>Nb cliqueurs participants / Nb de cliqueur max</li>
+        <li>Highscore</li>
+    </ul>
+</div>-->
+
+{% block javascript %}
+<script type="text/javascript" src="{% static "web/js/home/user.js" %}"></script>
+{% endblock %}
+

@@ -1,0 +1,316 @@
+.nav-container {
+  z-index: 99;
+  display: block;
+  background: #FF8F00;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  -o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);	
+}
+
+.nav-header {
+  z-index: 99;
+  max-width: 100vw;
+  display: block;
+  margin-bottom: 15px 0;
+}
+
+.nav-header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  width: auto;
+}
+
+.nav-header .float-right {
+	float: right;
+}
+
+.float-right li ul{
+	right: 0;
+	text-align: right;
+}
+
+.nav-header li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  position: relative;
+  font-size: 18px;
+  color: #def1f0;
+}
+
+.nav-header li a {
+  text-decoration: none;
+  padding: 15px 20px;
+  font-size: 18px;
+  color: #def1f0;
+  display: inline-block;
+  outline: 0;
+  font-weight: 400;
+}
+
+.dropdown {
+  z-index: 98;
+}
+
+.nav-header li:hover ul.dropdown {
+  display: block;
+}
+
+.nav-header li ul.dropdown {
+  position: absolute;
+  display: none;
+  background: #EF6C00;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  -o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  padding-top: 0;
+}
+
+.nav-header li ul.dropdown li {
+  display: block;
+  list-style-type: none;
+}
+
+.nav-header li ul.dropdown li a {
+  padding: 15px 20px;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+  font-weight: 400;
+}
+
+.nav-header li ul.dropdown li:last-child a {
+  border-bottom: none;
+}
+
+/*.nav-header li:hover a {
+  background: #EF6C00;
+  color: #fff !important;
+}*/
+
+.nav-header li ul.dropdown li:hover a {
+  background: rgba(0, 0, 0, .1);
+}
+
+.nav-header li ul.dropdown li:first-child:hover a {
+  border-radius: 0;
+}
+
+.nav-header li:hover .arrow-down {
+  border-top: 5px solid #fff;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #def1f0;
+  position: relative;
+  top: 11px;
+  right: -10px;
+  content: '';
+}
+
+.title-mobile,
+.search-mobile {
+  display: none;
+}
+
+.float-right li ul{
+    right: 0;
+    text-align: right;
+}
+
+@media only screen and (max-width:640px) {
+  .nav-container {
+     margin-bottom: 50px;
+  }
+  .nav-header {
+    background: #fff;
+    width: 250px;
+    height: 100%;
+    display: block;
+    position: fixed;
+    left: -250px;
+    top: 0px;
+    -webkit-transition: left 0.25s ease;
+    -moz-transition: left 0.25s ease;
+    -ms-transition: left 0.25s ease;
+    -o-transition: left 0.25s ease;
+    transition: left 0.25s ease;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+  }
+  .title-mobile {
+    position: absolute;
+    display: block;
+    top: 10px;
+    font-size: 20px;
+    left: 100px;
+    right: 100px;
+    text-align: center;
+    color: #FFF;
+  }
+  .search-mobile {
+  	display: block;
+  	float: right;
+  	padding-right: 12px;
+  }
+  .search-mobile i{
+  	font-size: 1.7em;
+  	color: white;
+  }
+  .nav-header.visible {
+    left: 0px;
+    -webkit-transition: left 0.25s ease;
+    -moz-transition: left 0.25s ease;
+    -ms-transition: left 0.25s ease;
+    -o-transition: left 0.25s ease;
+    transition: left 0.25s ease;
+  }
+  .nav-bg-header {
+    z-index: 99;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: #FF8F00;
+    padding: 12px 0 0 10px;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    -o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  }
+  .navbar-header {
+    display: inline-block;
+    vertical-align: middle;
+    height: 50px;
+    cursor: pointer;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 12px;
+  }
+  .navbar-header span {
+    height: 2px;
+    background: #fff;
+    margin: 5px;
+    display: block;
+    width: 20px;
+  }
+  .navbar-header span:nth-child(2) {
+    width: 20px;
+  }
+  .navbar-header span:nth-child(3) {
+    width: 20px;
+  }
+  .nav-header .float-right {
+  	float: left !important;
+  }
+
+  .float-right li ul{
+	left: 0;
+	text-align: left;
+   }
+
+  .nav-header ul {
+    width: 100%;
+  }
+  .nav-header ul:first-child {
+    padding-top: 44px;
+  }
+  .nav-header li {
+    display: block;
+  }
+  .nav-header li a {
+    display: block;
+    color: #505050;
+    font-weight: 600;
+  }
+  .nav-header li:first-child:hover a {
+    border-radius: 0;
+  }
+  .nav-header li ul.dropdown {
+    position: relative;
+    width: 100%;
+  }
+  .nav-header li ul.dropdown li a {
+    background: #EF6C00 !important;
+    border-bottom: none;
+    color: #fff !important;
+  }
+  .nav-header li:hover a {
+    background: #FF8F00;
+    color: #fff !important;
+  }
+  .nav-header li ul.dropdown li:hover a {
+    background: rgba(0, 0, 0, .1);
+    !important;
+    color: #fff !important;
+  }
+  .nav-header li ul.dropdown li a {
+    padding: 10px 10px 10px 30px;
+  }
+  .nav-header li:hover .arrow-down {
+    border-top: 5px solid #fff;
+  }
+  .arrow-down {
+    border-top: 5px solid #505050;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .cover-bg {
+    z-index: 8;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .nav-hide {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width:640px) {
+  .nav-button {
+    background: #EF6C00;
+    color: white;
+    padding: 5px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    border-radius: 50px/50px;
+  }
+  .nav-container {
+    padding-right: 10px;
+  }
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+/*REF = http://codepen.io/wisnust10/pen/ZWERZK?editors=1010 */

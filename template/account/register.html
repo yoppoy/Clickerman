@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Créer un compte
+{% endblock %}
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{% static "web/css/account/register.css" %}"/>
+{% endblock %}
+
+{% block content %}
+
+<div id="main_container" class="fill_page flex flex-center" style="background-image: url({% static "web/img/register/background.jpg" %});">
+	<div id="center_container" class="flex-child">
+		<h1>Créer votre compte Uclics</h1>
+		<h3><span class="bold">Inscrivez-vous</span> sur notre plateforme et rejoignez l'univers de Uclics pour gagner des lots&#8239;!</h3>
+		<form action="{% url 'account:register' %}" method="post" class="form">
+		 	{% if form.non_field_errors %}
+			 	<ul class="error_container">
+		      	{% for error in form.non_field_errors %}
+		        	<li class="error_message">{{ error }}</li>
+		      	{% endfor %}
+		      	</ul>
+	      	{% endif %}
+			{% csrf_token %}
+			{% if form.email.errors %}
+        	<ul class="error_container">
+	            {% for error in form.email.errors %}
+	              <li class="error_message">{{ error }}</li>
+	            {% endfor %}
+        	</ul>
+      		{% endif %}
+			<div class="row input"><div class="columns">{{ form.email }}</div></div>
+				{% if form.username.errors %}
+	        	<ul class="error_container">
+		            {% for error in form.username.errors %}
+		              <li class="error_message">{{ error }}</li>
+		            {% endfor %}
+	        	</ul>
+	      		{% endif %}
+			<div class="row input"><div class="columns">{{ form.username }}</div></div>
+				{% if form.password2.errors %}
+	        	<ul class="error_container">
+		            {% for error in form.password2.errors %}
+		              <li class="error_message">{{ error }}</li>
+		            {% endfor %}
+	        	</ul>
+	      		{% endif %}
+			<div class="row input"><div class="columns">{{ form.password1 }}</div></div>
+			<div class="row input"><div class="columns">{{ form.password2 }}</div></div>
+			<div class="row">
+				<div class="columns">
+					<input type="hidden" name="action" value="register" />
+					<input type="submit" value="Créer mon compte" class="button success columns"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="columns">
+		        	<a href="/account/login"><button type="button" class="button" class="login_button">Se connecter</button></a>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div id="enterprise_account">
+		<p>Vous êtes une <a href="#" class="underline bold">Entreprise</a> ?</p>
+	</div>
+</div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

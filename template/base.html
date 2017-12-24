@@ -1,0 +1,84 @@
+{% load staticfiles %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {% if '/bundle/' in request.path %}
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    {% else %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endif %}
+    <title>Uclics - {% block title %}{% endblock %}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700'>
+    <link type="text/css" rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto:300,400,700'>
+    <link type="text/css" rel="stylesheet" href="{% static "web/css/plugin/font-awesome/css/font-awesome.min.css" %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static "web/css/shared/foundation.min.css" %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static "web/css/shared/header.css" %}" />
+    <link type="text/css" rel="stylesheet" href="{% static "web/css/shared/footer.css" %}" />
+    <link type="text/css" rel="stylesheet" href="{% static "web/css/shared/app.css" %}" />
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="row nav-header">
+            <ul>
+                <li><a class="nav-hide" href="{% url 'web:home' %}">UCLICS</a></li>
+            </ul>
+            <ul class="float-right">
+                {% if user.is_authenticated %}
+                <li><a href="javascript:void(0)">Compte<span class="arrow-down"></span></a>
+                    <ul class="dropdown">
+                        <li><a href="{% url 'web:home' %}">Accueil</a></li>
+                        <li><a href="{% url 'account:edit' %}">Mon profil</a></li>
+                        <li><a href="{% url 'account:logout' %}">Déconnexion</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                <li><a href="{% url 'account:login' %}">Se connecter</a></li>
+                <li class="hide-for-small-only">où&nbsp;&nbsp;&nbsp;</li>
+                <li><a class="nav-button" href="{% url 'account:register' %}">Créer un compte</a></li>
+                {% endif %}
+            </ul>
+          </div>
+        </div>
+        <div class="nav-bg-header">
+            <div class="navbar-header"><span></span><span></span><span></span></div>
+            <a href="{% url 'web:home' %}" class="title-mobile">UCLICS</a>
+            <a class="search-mobile"><i class="fa fa-search" aria-hidden="true"></i></a>
+        </div>
+    </nav>
+    <div class="nav-cover"></div>   
+{% block content %}
+{% endblock %}
+<footer>
+    <div class="footer">
+        <div class="footer-right">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-envelope-o"></i></a>
+        </div>
+        <div class="footer-left">
+            <p class="footer-links">
+                <a href="#">A propos</a> ·
+                <a href="#">Contact</a> ·
+                <a href="#">Mentions légales</a> ·
+                <a href="#">Cookies</a> ·
+                <a href="#">Condition Générales d'utilisation</a>
+            </p>
+            <p>Uclics &copy; 2017</p>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="{% static "web/js/shared/jquery.min.js" %}"></script>
+<script type="text/javascript" src="{% static "web/js/shared/header.js" %}"></script>
+<script type="text/javascript" src="{% static "web/js/shared/app.js" %}"></script>
+{% block javascript %}
+{% endblock %}
+</body>
+</html>

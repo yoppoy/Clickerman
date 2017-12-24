@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ bundle.name }}
+{% endblock %}
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{% static "web/css/plugin/remodal.css" %}"/>
+<link type="text/css" rel="stylesheet" href="{% static "web/css/plugin/remodal-default-theme.css" %}"/>
+<link type="text/css" rel="stylesheet" href="{% static "web/css/bundle/circle_generator.css" %}"/>
+<link type="text/css" rel="stylesheet" href="{% static "web/css/bundle/bundle.css" %}"/>
+{% endblock %}
+
+{% block content%}
+<div class="row fullWidth background-medium" style="position: relative;">
+    <div id="info-column" class="small-12 medium-5 large-4 columns remodal-bg background-rest">
+        <div class="row text-center">
+             <div class="small-12" id="info_container">
+                <div id="image_container">
+                    <div id="product_image_container" style="width: 100%; height: 400px; max-height: 40vh; min-height: 200px; background-image: url('https://uclics.com/{{ bundle.media.url }}')">
+                            <a href="#product"><div style="height: 100%; width: 100%"></div></a>
+                            <button id="product_Sleft" class="color-medium"><i class="fa fa-3x fa-arrow-circle-left" aria-hidden="true"></i></button>
+                            <button id="product_Sright" class="color-medium"><i class="fa fa-3x fa-arrow-circle-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-left color-medium"> {{ bundle.name }} </h1>
+                    <h3 class="text-left color-medium"><span class="light">De</span> {{ bundle.enterprise }} </h3>
+                    <div id="social_media" class="text-left">
+                        <a class="text-center color-rest" href="#" target="_blank" ><!-- HREF OF FACEBOOK -->
+                            <i class="fa fa-facebook fa-2x btn-social scale-on-hover background-medium"></i>
+                        </a>
+                        <a class="text-center color-rest" href="#" target="_blank"><!-- HREF OF INSTAGRAM-->
+                            <i class="fa fa-instagram fa-2x btn-social scale-on-hover background-medium"></i>
+                        </a>
+                        <a class="text-center color-rest" href="#" target="_blank"><!-- HREF OF TWITTER-->
+                            <i class="fa fa-twitter fa-2x btn-social scale-on-hover background-medium"></i>
+                        </a>
+                        <a class="text-center color-rest" href="#" target="_blank"><!-- HREF OF YOUTUBE -->
+                            <i class="fa fa-youtube fa-2x btn-social scale-on-hover background-medium"></i>
+                        </a>
+                    </div>
+                    <h3 class="text-left text-condensed-b color-medium">{{ bundle.total_value }}€</h3>
+                    <h4 class="text-left text-condensed color-medium">{{ bundle.description }}</h4>
+                    <a href="#" target="_blank"><!-- LINK TO PRODUCT -->
+                        <button id="info_button" class="text-center text-condensed-l color-rest background-medium">Plus d'information</button>
+                    </a>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div id="game_column" class="small-12 medium-offset-0 medium-7 large-5 columns end remodal-bg color-rest">
+            <div id="highscore_container">
+                <p class="text-center text-condensed-l color-rest">Votre Highscore</p>
+                <p id="player_score" class="text-center right small-text-left text-condensed-b color-rest" id="player_score">{{ score.highscore }}</p>
+            </div>
+            <div id="circle_container">
+                <div>
+                    <div class="small-centered text-center large-centered columns">
+                        <div id="circle-border">
+                            <button id="circle-btn" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Decathlon_Logo.png/640px-Decathlon_Logo.png);"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="time_container">
+                <p class="text-condensed-l text-center">Temps restant</p>
+                <p id="count_down" class="text-condensed-b text-center">{{ bundle.time_left }}</p>
+                <p id="end_date" class="invisible">{{ bundle.date_ended }}</p>
+            </div>
+            <div id="text-container"></div>
+        </div>
+        <div id="info-container" class="small-offset-1 small-10 medium-offset-3 medium-6 large-offset-0 large-3 columns end remodal-bg color-rest" style="vertical-align: center; margin-top: 50px;">
+            <div id="stat_container">
+                <p class="text-condensed-l color-rest">Classement</p>
+                <p id="player_rank" class="text-condensed-b color-rest">{{ score.position }}</p>
+                <p class="text-condensed-l color-rest">Clics totaux</p>
+                <p id="player_clicks" class="text-condensed-b color-rest">{{ score.clicks }}</p>
+                <p class="text-condensed-l color-rest">Clics restants</p>
+                <p id="player_remaining_clicks" class="text-condensed-b color-rest">{{ score.remaining_clicks }}</p>
+            </div>
+            <div id="dropdown_leaderboard" class="dropdown">
+                <button class="dropdown_title text-center text-condensed-l color-rest unselectable">
+                    <i class="fa fa-angle-right rotate color-rest" href="#"></i>
+                    Meilleurs Joueurs
+                </button>
+                <div class="dropdown_container">
+                    {% for Score in bundle.leaderboard %}
+                        <p class="large-text-right small-text-left text-condensed show-score">{{ forloop.counter }}. {{ Score.highscore }} - <span class="bold">{{ Score.user.username }}</span></p>
+                    {% endfor %}  
+                    <a href="#score">
+                        <p class="text-center btn-normal show-score text-condensed color-rest background-medium" style="font-size: 25px;">
+                            <i class="fa fa-ellipsis-h"></i>
+                            Plus de résultats   
+                        </p>
+                    </a>
+                </div>
+            </div>
+             <div id="dropdown_clicks" class="dropdown">
+                <button class="dropdown_title text-center text-condensed-l color-rest unselectable">
+                    <i class="fa fa-angle-right rotate color-rest" href="#"></i>
+                    Mes 10 clics
+                </button>
+                <div class="dropdown_container">
+                    {% for x in score.last_clicks %}
+                        <p class="large-text-right small-text-left text-condensed show-score">{{ x }}</span></p>
+                    {% endfor %}
+                    <p class="warning_message">ATTENTION ! Seulement vos <span class="bold">10 derniers clics</span> comptent!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BOTTOM RIGHT BUTTONS START -->
+    <!--<div class="hide-for-large remodal-bg">
+        <a class="btn text-center twitter color-rest" href="#">
+            <i class="fa fa-twitter fa-2x btn-share show-icon background-medium" style="right: 93px;"></i>
+        </a>
+        <a class="btn text-center pinterest color-rest" href="#">
+            <i class="fa fa-pinterest fa-2x btn-share show-icon background-medium" style="right: 163px;"></i>
+        </a>
+        <a class="btn text-center facebook color-rest" href="#">
+            <i class="fa fa-facebook fa-2x btn-share show-icon background-medium" style="right: 233px;"></i>
+        </a>
+        <a id="share" class="btn text-center color-rest">
+            <i class="fa fa-share-alt fa-2x share background-medium"></i>
+        </a>
+    </div>
+    <div class="show-for-large remodal-bg">
+        <a class="btn text-center twitter color-rest background-medium" href="#">
+            <i class="fa fa-twitter fa-2x btn-share background-medium" style="right: 20px; opacity: 1"></i>
+        </a>
+        <a class="btn text-center pinterest color-rest background-medium" href="#">
+            <i class="fa fa-pinterest fa-2x btn-share background-medium" style="right: 93px; opacity: 1"></i>
+        </a>
+        <a class="btn text-center facebook color-rest " href="#">
+            <i class="fa fa-facebook fa-2x btn-share background-medium" style="right: 163px; opacity: 1"></i>
+        </a>
+    </div>-->
+    <!-- BOTTOM RIGHT BUTTONS END -->
+    <!-- REMODAL ITEMS START-->
+    <div data-remodal-id="product" class="remodal" >
+        <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div data-remodal-action="close" class="row">
+            <img src="https://uclics.com/{{ bundle.media.url }}">
+            <p>kfekjfer</p>
+        </div>
+    </div>
+    <div id="score_modal" data-remodal-id="score" class="remodal">
+        <button id="remodal-close-score" data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <div style="margin-bottom: 30px;" class="profile_div color-light">
+            <div class="row">
+                <div class="small-2 medium-2 columns" style="vertical-align: middle; height: 70px;" data-equalizer-watch>
+                    <p class="text-condensed text-center round color-rest" style="vertical-align: middle; font-size: 90%;">1234</p>
+                </div>
+                <div class="small-3 medium-2 columns" >
+                    <img src="img/profile-icon.png" style="max-height: 70px;" >
+                </div>
+                <div class="small-7 medium-8 columns end" style="display: inline; height: 70px;">
+                    <div class="row">
+                        <div class="small-12 medium-6 columns">
+                            <p class="text-condensed text-left" style="line-height: 28px;">Yan<br><span class="text-condensed-l">level : </span><span class="text-condensed-b">2</span></p>
+                        </div>
+                        <div class="show-for-medium medium-6 columns end">
+                            <p class="text-condensed-b text-center" style="line-height: 65px; font-size:40px; border-left: 2px solid var(--c-light)">500,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row show-for-small-only" style="margin-bottom: 30px;">
+                <div class="small-offset-5 small-7 medium-offset-3 medium-9 columns end">
+                    <p class="text-condensed-b text-left" style="line-height: 28px; font-size:40px;">500,000</p>
+                </div>
+            </div>
+        </div>
+        <svg id="load" x="0px" y="0px" viewBox="0 0 150 150" style="margin: 10px; margin-bottom: 20px; display: none">
+            <circle id="loading-inner" cx="75" cy="75" r="60"></circle>
+        </svg>
+        <div class="row">
+            <p id="load_users" class="small-offset-2 small-8 medium-offset-4 medium-4 btn btn-normal text-center text-condensed-l unselectable color-rest background-medium" style="line-height: 30px; font-size: 24px; margin-bottom: -5px;">
+                <i class="fa fa-angle-down rotate" style="width: 14px; padding-right: 25px;" href="#"></i>
+                Load more<br>
+            </p>
+        </div>
+    </div>
+    <div id="out_of_clicks" data-remodal-id="out_of_clicks" class="remodal">
+        <button id="remodal-close-score" data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+        <p class="text-l">Vous avez épuisé vos 100 clics !</p>
+        <p class="text-condensed">Revenez dans <span class="bold">1 heure</span> pour battre le highscore !</p>
+        <i class="fa fa-flag-o" aria-hidden="true"></i>
+        <div class="row">
+            <div class="small-offset-1 small-10 medium-offset-0 medium-6">
+                <a href="{% url 'web:home' %}"><button class="btn-round text-condensed"><i class="fa fa-home" aria-hidden="true"></i> Revenir à l'accueil</button></a>
+            </div>
+            <div class="small-offset-1 small-10 medium-offset-0 medium-6">
+                <a href="#"><button class="btn-round text-condensed"><i class="fa fa-random" aria-hidden="true"></i> Découvrir</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script type="text/javascript" src="{% static "web/js/bundle/circle_generator.js" %}"></script>
+<script type="text/javascript" src="{% static "web/js/bundle/server_gen.js" %}"></script>
+<script type="text/javascript" src="{% static "web/js/bundle/bundle.js" %}"></script>
+<script type="text/javascript" src="{% static "web/js/plugin/remodal.min.js" %}"></script>
+{% endblock %}

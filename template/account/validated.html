@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Email de validation envoyé
+{% endblock %}
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{% static "web/css/font-awesome/css/font-awesome.min.css" %}"/>
+<link type="text/css" rel="stylesheet" href="{% static "web/css/account/register.css" %}"/>
+{% endblock %}
+
+{% block content %}
+
+<div id="main_container" class="fill_page flex flex-center" style="background-image: url({% static "web/img/register/background.jpg" %});">
+	<div id="center_container" class="flex-child">
+		<h1 style="font-size: 55px;">Email de validation envoyé</h1>
+		<h3>Veuillez <span class="bold">cliquer sur le lien envoyé</span> sur votre adresse mail pour terminer votre inscription</h3>
+		<i class="fa fa-4x fa-envelope-o" aria-hidden="true"></i>
+	</div>
+</div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

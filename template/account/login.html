@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Se connecter
+{% endblock %}
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{% static "web/css/account/register.css" %}"/>
+{% endblock %}
+
+{% block content %}
+
+<div id="main_container" class="fill_page flex flex-center" style="background-image: url({% static "web/img/register/background.jpg" %});">
+  <div id="center_container" class="flex-child">
+    <h1>Connexion</h1>
+    <form method="post" action="{% url 'account:login' %}" class="form">
+      {% if form.non_field_errors %}
+        <ul class="error_container">
+            {% for error in form.non_field_errors %}
+              <li class="error_message">{{ error }}</li>
+            {% endfor %}
+        </ul>
+      {% endif %}
+      {% csrf_token %}
+      <div class="row input">
+        <div class="columns">
+         <div>
+            {% if form.username.errors %}
+            <ul class="error_container">
+                {% for error in form.username.errors %}
+                  <li class="error_message">{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+          </div>
+          {{ form.username }}
+        </div>
+      </div>
+      <div class="row input">
+        <div class="columns">
+          {{ form.password }}
+        </div>
+      </div>
+      <div class="row input">
+        <div class="columns">
+          <a href="#" id="password_lost">Mot de passe oublié ?</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns">
+          <input type="submit" class="button success" value="Connexion" class="login_button">
+          <input type="hidden" name="next" value="{{ next }}">
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns">
+          <a href="/account/register"><button type="button" class="button" class="login_button">Créer un compte</button></a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

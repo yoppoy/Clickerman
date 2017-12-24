@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Informations personnelles
+{% endblock %}
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{% static "web/css/account/form.css" %}"/>
+<link type="text/css" rel="stylesheet" href="{% static "web/css/account/box-style.css" %}"/>
+<link type="text/css" rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700'>
+<link type="text/css" rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto:300,400,700'>
+{% endblock %}
+
+{% block content %}
+<div class="main_container">
+  <form action="{% url 'account:edit' %}" method="post" id="form_profile">
+    {% csrf_token %}
+    <div class="box-wrapper">
+      <div class="box-container-style">
+        <div class="box-style">
+          <h2 class="box-item-style box-titre">Informations&nbsp<span class="bold">Générales</span></h2>
+          <hr class="box-titre-hr">
+          <div class="flex form_profile_container">
+            <div class="flex-child text-left">
+              <img src="http://i1.wp.com/www.lovelaurenblog.com/wp-content/uploads/2016/10/Love-Lauren-profile-pic-.png?fit=403%2C403"
+              class="form_img">
+            </div>
+            <div class="flex-child flex-grow form_img_upload">
+              <input type="file" size="10"/>
+              <button class="button alert">Effacer</button>
+            </div>
+          </div>
+          <div class="field_container text-left">
+            {% include "part/form_snippet.html" with field=user_form.username %}
+          </div>
+          <div class="field_container text-left">
+            {% include "part/form_snippet.html" with field=user_form.email %}
+          </div>
+          <div class="field_container text-left">
+            {% include "part/form_snippet.html" with field=user_form.first_name %}
+          </div>
+          <div class="field_container text-left">
+            {% include "part/form_snippet.html" with field=user_form.last_name %}
+          </div>
+          <div class="field_container text-left">
+            {% include "part/form_snippet.html" with field=profile_form.gender %}
+          </div>
+          <div class="columns text-left">
+            <p class="label_text">{{ profile_form.medias.label_text }}</p>
+            <div div class="form_field_container">
+              <p class="form_field">{{ field }}</p>
+            </div>
+            <p class="error_text">{{ field.errors }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="box-container-style">
+        <div class="box-style">
+          <p class="box-item-style box-titre">Mes&nbsp<span class="bold"> Adresses</span></p>
+          <hr class="box-titre-hr">
+          <div class="field_container text-left">
+            {% for address in addresses %}
+            <div class="adresses_container">
+              <form method="post" action="{# url 'account_address_edit' address_alias=address.object.alias #}">
+                {% csrf_token %}
+                <div class="row edit_address">
+                  <div class="small-7 medium-8 columns">
+                    <p>{{ address.form.alias }}</p>
+                  </div>
+                  <div class="small-3 medium-4 columns end">
+                    <button class="button address_edit" type="button">Modifier</button>
+                  </div>
+                </div>
+                <div class="address_container" style="display: none">
+                  <div class="row">
+                    <div class="small-6 columns">{% include "part/form_snippet.html" with field=address.form.first_name %}</div>
+                    <div class="small-6 columns end">{% include "part/form_snippet.html" with field=address.form.last_name %}</div>
+                  </div>
+                  <div class="row"><div class="small-12 columns">{% include "part/form_snippet.html" with field=address.form.line1 %}</div></div>
+                  <div class="row"><div class="small-12 columns">{% include "part/form_snippet.html" with field=address.form.line2 %}</div></div>
+                  <div class="row">
+                   <div class="small-6 columns">{% include "part/form_snippet.html" with field=address.form.postcode %}</div>
+                   <div class="small-6 columns">{% include "part/form_snippet.html" with field=address.form.city %}</div>
+                 </div>
+                 <div class="row">
+                   <div class="small-6 columns">{% include "part/form_snippet.html" with field=address.form.state %}</div>
+                   <div class="small-6 columns">{% include "part/form_snippet.html" with field=address.form.country %}</div>
+                 </div>
+                 <div class="row"><div class="small-12 columns">{% include "part/form_snippet.html" with field=address.form.phone %}</div></div>
+                 <div class="row">
+                   <div class="small-12 columns"><input class="button success" type="submit" /></div>
+                 </div>
+               </div>
+             </form>
+           </div>
+           {% empty %}
+           <h3>Aucune Adresse entrée</h3>
+           <button class="button">Ajouter une adresse</button>
+           {% endfor %}
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <div class="submit_bar" style="display: none">
+  <button class="button alert" type="button">Annuler</button>
+  <input type="submit" class="button success" value="Valider"/>
+</div>
+</form>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script type="text/javascript" src="{% static "web/js/account/edit_account.js" %}"></script>
+{% endblock %}

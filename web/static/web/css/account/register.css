@@ -1,0 +1,116 @@
+#main_container {
+	text-align : center;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#main_container > div {
+	display: inline-block;
+	text-align: center;
+}
+
+#center_container {
+	margin-bottom: 60px;
+}
+
+#center_container > * {
+	color: white;
+	line-height: 1;
+}
+
+#center_container > h1 {
+	padding-right: 40px;
+	padding-left: 40px;
+	font-weight: 100;
+	font-size: 55px;
+}	
+
+#center_container > h3 {
+	font-weight: 400;
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+
+#center_container > p {
+	font-weight: 600;
+	font-size: 40px;
+}
+
+#center_container > label {
+	font-weight: 100;
+	font-size: 35px;
+}
+
+#player_score {
+	font-weight: 600;
+	font-size: 40px;
+}
+
+.error_container {
+	padding: 0px;
+	max-width: 300px;
+	display: inline-block;
+	margin-bottom: 20px;
+	padding: 20px;
+	text-align: left;
+	background: rgba(183, 28, 28, 0.5);
+}
+
+.error_message {
+	font-size: 16px;
+	line-height: 1;
+	color: white;
+}
+
+.form
+{
+	width: 100%;
+	max-width: 400px;
+	display: inline-block;
+}
+
+.form .columns input {
+	max-width: 300px;
+	min-width: 0px;
+	display: inline-block;
+}
+
+.form .columns {
+	text-align: center;
+}
+
+#enterprise_account
+{
+	position: absolute;
+	width: 100vw;
+	max-width: 100%;
+	text-align: center;
+	bottom: 0;
+	left: 0;
+	padding-bottom: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#enterprise_account > p
+{
+	font-size: 22px;
+	font-weight: 100;
+	color: white;
+	line-height: 1.2;
+}
+
+#password_lost
+{
+	display: block;
+	margin-bottom: 10px;
+}
+
+form input > .columns {
+	padding-left: 0px;
+	padding-right: 0px;
+}

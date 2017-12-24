@@ -1,0 +1,216 @@
+/*------------------
+----GLOBAL-TAGS-----
+------------------*/
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+	font-family: 'Roboto';
+}
+
+button {
+	font-family: 'Roboto';	
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+a {
+	color: inherit;
+}
+
+ul {
+	margin-bottom: 0px;
+	list-style-type: none;
+}
+
+p {
+	margin-bottom: 0 !important;
+}
+
+.normal-margin {
+	margin-bottom: 20px !important;
+}
+
+.text-smaller {
+	font-size: 15px !important;
+}
+
+.invisible {
+	display: none;
+}
+
+.main_container {
+	max-width: 100%;
+	width: 100%;
+	text-align: center;
+}
+
+.main_container > * {
+	width: 100%;
+}
+
+.inline_block {
+	display: inline-block;
+}
+
+/*------------------
+------DIMENSIONS----
+------------------*/
+
+.fullHeight {
+	max-height: 100%;
+	height: 100%;
+}
+
+.fullScreenHeight {
+	height: 100%;
+	min-height: 100vh;
+}
+
+.fullWidth {
+	max-width: 100%;
+	width: 100%;
+}
+
+.fullScreenWidth {
+	width: 100%;
+	width: 100vh;
+}
+
+/*------------------
+------ANIMATION-----
+------------------*/
+.scaler
+{
+	transition: 0.2s ease all;
+}
+
+.scaler:hover {
+	transform: scale(1.05);
+}
+.scaler:active {
+	transform: scale(0.95);
+}
+
+/*------------------
+------CENTER-----
+------------------*/
+
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 3px 5px;
+}
+
+.centered-block:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.flex {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flex-child {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+.flex-center {
+	align-items: center;
+	justify-content: center;
+}
+
+.flex-grow {
+	flex-grow: 2;
+}
+
+/*------------------
+--------FONT--------
+------------------*/
+
+.text-condensed {
+	font-family: 'Roboto Condensed' !important;
+	font-weight: 400;
+	font-size: 25px;
+}
+
+.text-condensed-l {
+	font-family: 'Roboto Condensed' !important;
+	font-weight: 300;
+	font-size: 25px;
+}
+
+.text-condensed-b {
+	font-family: 'Roboto Condensed' !important;
+	font-size: 25px;
+	font-weight: 700;
+}
+
+.text-n {
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 25px;
+}
+
+.text-l {
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 25px;
+}
+
+.text-b {
+	font-family: 'Roboto';
+	font-size: 25px;
+	font-weight: 700;
+}
+
+.text-left {
+	text-align : left;
+}
+
+.text-right {
+	text-align : right;
+}
+
+.text-center {
+	text-align : center;
+}
+
+.bold {
+	font-weight:bold;
+}
+
+.normal {
+	font-weight:normal;
+}
+
+.light {
+	font-weight:200;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+/*------------------
+-------BUTTON-------
+------------------*/
+
+.btn-round
+{
+	padding: 25px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-radius: 50px/50px;
+}

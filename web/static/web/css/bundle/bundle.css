@@ -1,0 +1,217 @@
+/*
+* @Author: yoppoy
+* @Date:   2017-01-11 23:45:58
+* @Last Modified by:   yoppoy
+* @Last Modified time: 2017-02-10 21:58:49
+*/
+
+/*------------------
+-------COLOR--------
+------------------*/
+
+.color-rest { color: white !important; }
+
+.background-rest { background-color: white !important; }
+
+.border-rest { border-color: white !important; }
+
+.color-light { color : #02a1ff !important; }
+
+.background-light { background-color: #02a1ff !important; }
+
+.border-light { border-color: #02a1ff !important; }
+
+.color-medium { color: #0198f1 !important; }
+
+.background-medium { background-color: #0198f1 !important; }
+
+.border-medium { border-color: #0198f1 !important; }
+
+
+
+/*------------------
+---INFO-CONTAINTER--
+------------------*/
+#info-column .row,
+#info-column .column {
+	max-width: 100vw;
+}
+
+#info_container > div:last-child{
+	padding: 30px;
+	padding-top: 0px;
+}
+
+@media only screen and (min-width:640px) {
+	#info_container {
+		min-height: 100vh;
+	}
+}
+
+#info_container > *{
+	margin-bottom: 5px;
+}
+
+#product_image_container {
+	position: relative;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+#product_image_container > button {
+	position: absolute;
+	top: 46%;
+}
+
+#product_image_container > button:nth-child(2) {
+	left: 20px;
+}
+
+#product_image_container > button:nth-child(3) {
+	right: 20px;
+}
+
+#product_image_container > a > img{
+		max-width: 100%;
+		max-height: 300px;
+}
+
+.btn-social {
+	padding: 15px;	
+	width: 58px;
+	border-radius: 50%;
+	outline: none;
+	transform: scale(0.75);
+	transition: transform 200ms ease-out;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent;
+}
+
+#info_button {
+	width: 100%;
+	margin-top: 20px;
+	font-size: 28px;
+	padding: 5px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-radius: 100%/100%;
+	border-radius: 50px/50px;
+	max-width: 350px;
+}
+
+/*------------------
+---GAME CONTAINER---
+------------------*/
+#time_container {
+	margin-top: 30px;
+}
+
+#circle_container {
+	margin: auto;
+	max-width: 650px;
+	text-align: center;
+}
+
+#circle_container > div{
+	max-width: 90%;
+	margin: auto;
+	text-align: center;
+}
+
+#time_container > p:nth-child(1),
+#highscore_container > p:nth-child(1){
+	font-size: 30px;
+	line-height: 20px;
+}
+
+#highscore_container {
+	margin-top: 30px;
+}
+
+#time_container > p:nth-child(2){
+	font-size: 40px;
+}
+#highscore_container > p:nth-child(2){
+	font-size: 50px;
+}
+
+.dropdown .fa
+{
+	margin-right: 10px;
+	margin-left: 5px;
+}
+
+#dropdown_leaderboard .dropdown_container{
+	display: none;
+}
+
+#dropdown_clicks .fa{
+	transform: rotate(90deg);
+}
+
+#circle-btn {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-color: #0198f1;
+}
+
+#circle-border {
+	margin-top: 10px;
+}
+
+.text-dissapear {
+	background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/*------------------
+------ANIMATION-----
+------------------*/
+.scale-on-hover{
+	transition: transform 300ms;
+}
+
+.scale-on-hover:hover{
+	transform: scale(1.01);
+}
+
+.scale-on-hover:active{
+	transform: scale(0.99);
+}
+
+/*------------------
+----OUT OF CLICKS---
+------------------*/
+#out_of_clicks > p:nth-child(2) {
+	color: #F44336;
+}
+
+#out_of_clicks > p:nth-child(3) {
+	font-size: 20px;
+	color: #E57373
+}
+
+#out_of_clicks > .fa {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	font-size: 5em;
+	color: #FF5252;
+}
+
+#out_of_clicks > .row {
+	max-width: 480px;
+}
+
+#out_of_clicks > .row > div > a > button {
+	color: white;
+	font-size: 20px;
+}
+
+#out_of_clicks > .row > div:first-child > a > button {
+	background: #0091EA;
+	margin-bottom: 15px;
+}
+
+#out_of_clicks > .row > div:nth-child(2) > a > button {
+	background: #00C853;
+}

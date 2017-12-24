@@ -1,0 +1,88 @@
+.box-wrapper
+{
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	padding-top: 20px;
+	text-align: center;
+	vertical-align: top;
+}
+
+.box-container-style
+{
+	display: inline-block;
+	width: 100%;
+	max-width: 400px;
+	padding: 10px;
+	vertical-align: top;
+}
+
+.box-style
+{
+	background: white;
+	width: 100%;
+	text-align: left;
+	padding-bottom: 18px;
+}
+
+.box-item-style
+{
+	margin-top: 0px !important;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+.box-text
+{
+	font-family: 'Roboto Condensed', serif;
+	color: #a2a2a2;
+	font-style: italic;
+	font-size: 20px;
+}
+
+.box-text-imp
+{
+	font-family: 'Roboto Condensed', serif;
+	color: #e74c3c;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 1;
+}
+
+.box-text-titre
+{
+	font-family: 'Roboto Condensed', serif;
+	color: #616161;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 1;
+}
+
+.box-titre
+{
+	font-family: 'Roboto Condensed', serif;
+	color: #616161;
+	font-size: 25px;
+	line-height: 1;
+	padding-top:20px;
+}
+
+.box-titre-hr
+{
+	border: 2px solid #616161;
+}
+
+.box-sous-titre
+{
+	font-family: 'Roboto Condensed', serif;
+	color: #616161;
+	font-size: 25px;
+	line-height: 1;
+	margin-bottom: 5px;
+}
+
+.edit_address .columns:last-child {
+	padding: 0px;
+	margin: 0px;
+}

@@ -1,0 +1,137 @@
+/*
+* @Author: yoppoy
+* @Date:   2017-01-26 22:52:33
+* @Last Modified by:   yoppoy
+* @Last Modified time: 2017-02-06 23:44:56
+*/
+
+h2 {
+	font-size: 60px;
+	margin-top: 0px;
+	font-weight: 200;
+	margin-bottom: 40px;
+	line-height: 0.95;
+	color: #F57C00;
+}
+
+h3 {
+	font-size: 40px;
+	margin-top: 0px;
+	font-weight: 200;
+	margin-bottom: 20px;
+	line-height: 0.95;
+	color: #F57C00;
+}
+
+h4 {
+	color: #F57C00;
+	font-size: 30px;
+	font-family: 'Roboto';
+}
+
+p {
+	color: #F57C00;
+	font-size: 20px;
+	font-family: 'Roboto';
+}
+
+button {
+	margin-top: 20px;
+	background: #FF8F00;
+	color: white;
+	font-size: 20px;
+	padding: 20px;
+	border-radius: 50px/50px;
+	border: 3px solid #FF8F00;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+	font-family: 'Roboto' !important;
+}
+
+button:hover {
+	border-color: #FF8F00;
+	color: #FF8F00;
+	background: white;
+}
+
+#main_container {
+	text-align : center;
+	min-height: 100vh;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+
+#circle-border {
+	margin-top: 30px;
+	max-width: 300px;
+	background: rgba(245,124,0,0.3) !important;
+	margin-bottom: 30px !important;
+}
+
+#circle-btn {
+	color: white !important;
+	background: #FF8F00;
+	line-height: 1;
+	font-size: 50px;
+}
+
+.slide {
+	padding: 20px;
+	padding-top: 60px;
+	padding-bottom: 40px;
+	background-size: cover;
+	background-position: top center;
+}
+
+#steps > .columns {
+	padding: 8px;
+	margin-bottom: 30px;
+	margin-right : auto;
+	margin-left : auto;
+	max-width: 350px;
+}
+
+#steps > .columns > *{
+	color: #fff;
+}
+
+#steps img{
+	max-width: 200px;
+}
+#process {
+	background: #FF8F00;
+}
+
+#process > div > *{
+	margin-top: 0px;
+	color: #fff !important;
+}
+.text_dissapear
+{
+	position: absolute;
+	border-radius: 50px/50px;
+	background-color: rgba(255, 255, 255, 0.8)!important;
+	color: #F57C00;
+	overflow-y : hidden !important;
+	font-weight: bold;
+	font-size: 35px;
+	padding: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	transform-origin:20% top;
+	animation: dissapear 4s 1;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=00);
+	-moz-opacity: 0.5;
+	khtml-opacity: 0.5;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
